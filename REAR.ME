@@ -1,9 +1,31 @@
-# Mood Movie Recommender (Flask + MySQL)
+# 🎬 Mood Movie Recommender  
+_A lightweight Flask + MySQL web app that recommends movies based on your current mood._
 
-## Local setup
-1. Create MySQL DB and user (see movies.sql).
-2. Copy `.env.example` to `.env` and set your DB credentials.
-3. Create & activate virtualenv, then `pip install -r requirements.txt`.
-4. Run `python app.py`.
-5. Open `http://127.0.0.1:5000/`.
+![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
+![Flask](https://img.shields.io/badge/Flask-Backend-green.svg)
+![MySQL](https://img.shields.io/badge/Database-MySQL-orange.svg)
+![Status](https://img.shields.io/badge/Status-Active-success.svg)
 
+---
+
+## 📸 App Preview
+![App Screenshot](docs/screenshot.png)
+
+---
+
+## 📌 About the Project
+The **Mood Movie Recommender** is a web application where users can select a mood (e.g., _happy, sad, bored, romantic_) and instantly receive a curated list of movies matching that mood.
+
+It includes:
+- Flask backend  
+- MySQL database (Flask-SQLAlchemy + PyMySQL)  
+- Tailwind-styled UI and dashboard  
+- TMDb poster auto-fetch optional (see below)
+
+---
+
+## ⚙️ Quick Start (local)
+1. Clone:
+```bash
+git clone https://github.com/YOUR_USERNAME/mood-movie-flask.git
+cd mood-movie-flask

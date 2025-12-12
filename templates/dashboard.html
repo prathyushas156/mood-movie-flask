@@ -29,12 +29,13 @@
           </div>
         </div>
 
-        <div class="flex items-center gap-3">
-          <form action="/dashboard/delete/{{ m.id }}" method="post" onsubmit="return confirm('Delete movie?')">
-            <button class="bg-red-500 px-3 py-2 rounded hover:bg-red-600">Delete</button>
-          </form>
-        </div>
-      </div>
+        <<div class="flex items-center gap-3">
+  <a href="/dashboard/edit/{{ m.id }}" class="bg-blue-500 px-3 py-2 rounded hover:bg-blue-600">Edit</a>
+  <form action="/dashboard/delete/{{ m.id }}" method="post" onsubmit="return confirm('Delete movie?')">
+    <button class="bg-red-500 px-3 py-2 rounded hover:bg-red-600">Delete</button>
+  </form>
+</div>
+
     {% else %}
       <p>No movies yet. Use the form above to add some.</p>
     {% endfor %}

@@ -1,0 +1,20 @@
+@'
+{% extends "layout.html" %}
+{% block content %}
+<div class="bg-white/5 rounded-2xl p-8 shadow-xl">
+  <h2 class="text-2xl font-semibold mb-4">Edit Movie — {{ movie.title }}</h2>
+
+  <form action="/dashboard/edit/{{ movie.id }}" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <input name="title" value="{{ movie.title }}" placeholder="Title" required class="p-3 rounded-lg text-slate-900" />
+    <input name="genre" value="{{ movie.genre }}" placeholder="Genre" class="p-3 rounded-lg text-slate-900" />
+    <input name="rating" value="{{ movie.rating }}" placeholder="Rating (e.g. 7.5)" class="p-3 rounded-lg text-slate-900" />
+    <input name="mood" value="{{ movie.mood }}" placeholder="Mood (e.g. happy)" required class="p-3 rounded-lg text-slate-900" />
+    <input name="poster_url" value="{{ movie.poster_url }}" placeholder="Poster URL (optional)" class="p-3 rounded-lg text-slate-900 md:col-span-2" />
+    <div class="md:col-span-2 flex gap-2">
+      <button class="bg-indigo-500 px-4 py-2 rounded-lg hover:bg-indigo-600">Save</button>
+      <a href="/dashboard" class="bg-slate-600 px-4 py-2 rounded-lg">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
+'@ | Out-File -FilePath .\templates\edit.html -Encoding utf8
