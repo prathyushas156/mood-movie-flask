@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="bg-white/5 rounded-2xl p-8 shadow-xl">
+  <h1 class="text-4xl font-bold mb-4">How are you feeling?</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="col-span-2">
+      <select id="moodSelect" class="w-full p-3 rounded-lg text-slate-900">
+        <option value="">-- choose mood --</option>
+        <option value="happy">Happy</option>
+        <option value="sad">Sad</option>
+        <option value="romantic">Romantic</option>
+        <option value="bored">Bored</option>
+        <option value="inspired">Inspired</option>
+      </select>
+
+      <button id="getBtn" class="mt-4 bg-indigo-500 px-5 py-3 rounded-lg font-medium hover:bg-indigo-600">Get Recommendations</button>
+
+      <div id="results" class="mt-6"></div>
+    </div>
+
+    <div class="p-4 rounded-lg bg-white/3">
+      <h3 class="font-semibold mb-2">Tips</h3>
+      <p class="text-sm">Try different moods or add new movies from the dashboard. Posters will appear if a poster URL is set.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

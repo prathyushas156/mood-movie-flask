@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="bg-white/5 rounded-2xl p-8 shadow-xl mb-6">
+  <h2 class="text-2xl font-semibold mb-4">Dashboard — Movies</h2>
+
+  <form action="/dashboard/add" method="post" class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
+    <input name="title" placeholder="Title" required class="p-3 rounded-lg text-slate-900" />
+    <input name="genre" placeholder="Genre" class="p-3 rounded-lg text-slate-900" />
+    <input name="rating" placeholder="Rating (e.g. 7.5)" class="p-3 rounded-lg text-slate-900" />
+    <input name="mood" placeholder="Mood (e.g. happy)" required class="p-3 rounded-lg text-slate-900" />
+    <input name="poster_url" placeholder="Poster URL (optional)" class="p-3 rounded-lg text-slate-900 md:col-span-2" />
+    <button class="bg-green-500 px-4 py-3 rounded-lg hover:bg-green-600">Add Movie</button>
+  </form>
+
+  <div class="grid gap-4">
+    {% for m in movies %}
+      <div class="flex items-center justify-between bg-white/3 p-3 rounded-lg">
+        <div class="flex items-center space-x-4">
+          <div class="w-16 h-20 bg-slate-700 rounded overflow-hidden flex items-center justify-center">
+            {% if m.poster_url %}
+              <img src="{{ m.poster_url }}" alt="{{ m.title }}" class="w-full h-full object-cover"/>
+            {% else %}
+              <span class="text-xs text-slate-300 p-2">No poster</span>
+            {% endif %}
+          </div>
+          <div>
+            <div class="font-semibold">{{ m.title }}</div>
+            <div class="text-sm text-slate-200">{{ m.genre or '—' }} • Mood: {{ m.mood }}</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <form action="/dashboard/delete/{{ m.id }}" method="post" onsubmit="return confirm('Delete movie?')">
+            <button class="bg-red-500 px-3 py-2 rounded hover:bg-red-600">Delete</button>
+          </form>
+        </div>
+      </div>
+    {% else %}
+      <p>No movies yet. Use the form above to add some.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
